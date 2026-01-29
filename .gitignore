@@ -34,3 +34,6 @@ out
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase
+.firebase

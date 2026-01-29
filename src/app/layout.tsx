@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "@/styles/globals.css";
 import { Providers } from "@/components/providers";
 import { Header } from "@/components/Header";
@@ -10,6 +10,22 @@ import { Suspense } from "react";
 export const metadata: Metadata = {
   title: "IputDracin - Streaming Drama Pendek",
   description: "Nonton drama pendek gratis dan tanpa iklan.",
+  manifest: "/manifest.json",
+  icons: {
+    icon: [
+      { url: "/icon-192x192.png", sizes: "192x192" },
+      { url: "/icon-512x512.png", sizes: "512x512" },
+    ],
+    apple: "/icon-192x192.png",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#000000",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
