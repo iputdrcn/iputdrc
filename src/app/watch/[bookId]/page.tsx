@@ -228,9 +228,10 @@ export default function WatchPage() {
             </div>
 
             {/* Episode Info */}
+            {/* Episode Info */}
             <div className="glass rounded-xl p-4">
-              <div className="flex items-start justify-between gap-4">
-                <div>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div className="w-full sm:w-auto">
                   <h1 className="text-xl font-bold font-display gradient-text">{book.bookName}</h1>
                   <p className="text-muted-foreground mt-1">
                     {currentEpisodeData?.chapterName || `Episode ${currentEpisode + 1}`}
@@ -238,32 +239,34 @@ export default function WatchPage() {
                 </div>
 
                 {/* Episode Navigation */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center justify-between sm:justify-end gap-2 w-full sm:w-auto mt-2 sm:mt-0">
                   <a
                     href={`/api/download?url=${encodeURIComponent(getVideoUrl())}&filename=${encodeURIComponent(`${book.bookName}-Episode-${currentEpisode + 1}.mp4`)}`}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md hover:shadow-primary/25 mr-2"
+                    className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md hover:shadow-primary/25 mr-2"
                     title="Download Video"
                   >
                     <Download className="w-4 h-4" />
-                    <span className="font-medium hidden sm:inline">Download</span>
+                    <span className="font-medium">Download</span>
                   </a>
-                  <button
-                    onClick={() => handleEpisodeChange(Math.max(0, currentEpisode - 1))}
-                    disabled={currentEpisode === 0}
-                    className="p-2 rounded-lg bg-muted hover:bg-muted/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <span className="text-sm font-medium min-w-[60px] text-center">
-                    {currentEpisode + 1} / {episodes.length}
-                  </span>
-                  <button
-                    onClick={() => handleEpisodeChange(Math.min(episodes.length - 1, currentEpisode + 1))}
-                    disabled={currentEpisode === episodes.length - 1}
-                    className="p-2 rounded-lg bg-muted hover:bg-muted/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => handleEpisodeChange(Math.max(0, currentEpisode - 1))}
+                      disabled={currentEpisode === 0}
+                      className="p-2 rounded-lg bg-muted hover:bg-muted/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronLeft className="w-5 h-5" />
+                    </button>
+                    <span className="text-sm font-medium min-w-[60px] text-center hidden sm:inline-block">
+                      {currentEpisode + 1} / {episodes.length}
+                    </span>
+                    <button
+                      onClick={() => handleEpisodeChange(Math.min(episodes.length - 1, currentEpisode + 1))}
+                      disabled={currentEpisode === episodes.length - 1}
+                      className="p-2 rounded-lg bg-muted hover:bg-muted/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                      <ChevronRight className="w-5 h-5" />
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
