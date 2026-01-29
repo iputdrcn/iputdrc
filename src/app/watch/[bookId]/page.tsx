@@ -240,9 +240,12 @@ export default function WatchPage() {
                 {/* Episode Navigation */}
                 <div className="flex items-center gap-2">
                   <a
-                    href={`/api/download?url=${encodeURIComponent(getVideoUrl())}&filename=${encodeURIComponent(`${book.bookName}-Episode-${currentEpisode + 1}.mp4`)}`}
+                    href={getVideoUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
                     className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-all shadow-md hover:shadow-primary/25 mr-2"
-                    title="Download Video"
+                    title="Download / Buka Video"
                   >
                     <Download className="w-4 h-4" />
                     <span className="font-medium hidden sm:inline">Download</span>
