@@ -10,9 +10,6 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
-    "@netlify/blobs": "^10.5.0",
-    "@netlify/functions": "^5.1.2",
-    "@netlify/ipx": "^1.4.6",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
     "@radix-ui/react-aspect-ratio": "^1.1.7",
@@ -64,6 +61,7 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.15.7",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",
